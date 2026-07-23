@@ -1,0 +1,31 @@
+{
+  "name": "flaredns-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.11",
+    "@tsconfig/node22": "^22.0.2",
+    "@lucide/vue": "^1.26.0",
+    "naive-ui": "^2.42.0",
+    "pinia": "^3.0.3",
+    "tailwindcss": "^4.1.11",
+    "vue": "^3.5.18",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/tsconfig": "^0.8.1",
+    "typescript": "~5.8.3",
+    "vite": "^7.0.6",
+    "vitest": "^3.2.4",
+    "vue-tsc": "^3.0.3"
+  }
+}

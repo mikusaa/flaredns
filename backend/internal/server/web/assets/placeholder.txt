@@ -1,0 +1,1 @@
+FlareDNS frontend assets are copied here during the Docker build.

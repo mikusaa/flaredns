@@ -1,0 +1,25 @@
+services:
+  flaredns:
+    build: .
+    image: "${FLAREDNS_IMAGE:-flaredns:local}"
+    container_name: flaredns
+    restart: unless-stopped
+    ports:
+      - "${FLAREDNS_PORT:-8080}:8080"
+    environment:
+      FLAREDNS_ADDR: "${FLAREDNS_ADDR:-:8080}"
+      FLAREDNS_PUBLIC_URL: "${FLAREDNS_PUBLIC_URL:-http://localhost:8080}"
+      FLAREDNS_RP_ID: "${FLAREDNS_RP_ID:-}"
+      FLAREDNS_SESSION_TTL: "${FLAREDNS_SESSION_TTL:-12h}"
+      FLAREDNS_TRUSTED_PROXIES: "${FLAREDNS_TRUSTED_PROXIES:-}"
+      FLAREDNS_LOG_LEVEL: "${FLAREDNS_LOG_LEVEL:-info}"
+      FLAREDNS_COOKIE_SECURE: "${FLAREDNS_COOKIE_SECURE:-}"
+      TZ: "${TZ:-Asia/Shanghai}"
+    volumes:
+      - ./data:/data
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8080/healthz"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
