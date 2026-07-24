@@ -4,10 +4,12 @@
 
 <h1 align="center">FlareDNS</h1>
 
-[![CI](https://github.com/mikusaa/flaredns/actions/workflows/ci.yml/badge.svg)](https://github.com/mikusaa/flaredns/actions/workflows/ci.yml)
-[![Container](https://github.com/mikusaa/flaredns/actions/workflows/publish-image.yml/badge.svg)](https://github.com/mikusaa/flaredns/actions/workflows/publish-image.yml)
-[![Release](https://img.shields.io/github/v/release/mikusaa/flaredns)](https://github.com/mikusaa/flaredns/releases)
-[![License](https://img.shields.io/github/license/mikusaa/flaredns)](LICENSE)
+<p align="center">
+  <a href="https://github.com/mikusaa/flaredns/actions/workflows/ci.yml"><img src="https://github.com/mikusaa/flaredns/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://github.com/mikusaa/flaredns/actions/workflows/publish-image.yml"><img src="https://github.com/mikusaa/flaredns/actions/workflows/publish-image.yml/badge.svg" alt="Container"></a>
+  <a href="https://github.com/mikusaa/flaredns/releases"><img src="https://img.shields.io/github/v/release/mikusaa/flaredns" alt="Release"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/mikusaa/flaredns" alt="License"></a>
+</p>
 
 FlareDNS 是一个轻量、自托管的 Cloudflare DNS 管理面板，适用于 Homelab、个人服务器和多 VPS 环境。它提供专注于 DNS 的日常管理界面，不包含 CDN、WAF 或 Zero Trust 等 Cloudflare 平台功能。
 
@@ -44,6 +46,8 @@ cp .env.example .env
 ```dotenv
 FLAREDNS_IMAGE=ghcr.io/mikusaa/flaredns:latest
 ```
+
+生产环境可将 `latest` 替换为具体版本（如 `1.0.0`），避免自动跟随后续版本。
 
 启动服务：
 
@@ -97,7 +101,7 @@ FlareDNS 不接收 Cloudflare 主账号密码，也不在 API 或管理界面中
 
 ## Passkey 与 HTTPS
 
-Passkey 可在“设置 -> Passkey”中注册和管理。密码登录始终保留，用于首次配置与账号恢复。
+Passkey 可在“设置 → Passkey”中注册和管理。密码登录始终保留，用于首次配置与账号恢复。
 
 - `http://localhost` 属于浏览器认可的安全上下文，可用于本机测试。
 - 通过局域网 IP 的普通 HTTP 地址访问时，仅密码登录可用。
@@ -228,16 +232,6 @@ make build
 docker build -t flaredns:local .
 ```
 
-## 镜像发布
-
-GitHub Actions 自动构建 `linux/amd64` 和 `linux/arm64` 镜像并推送至 `ghcr.io/mikusaa/flaredns`：
-
-- `main` 分支发布 `main`、`latest` 和 `sha-<commit>` 标签。
-- `v*` Git 标签发布语义化版本标签。例如 `v1.2.3` 对应 `1.2.3`、`1.2` 和 `1`。
-- `Publish container image` 工作流支持手动触发。
-
-工作流使用仓库内置的 `GITHUB_TOKEN` 写入 GitHub Packages，无需单独配置 Registry 凭据。
-
 ## 安全设计
 
 - 密码使用 Argon2id 哈希，连续失败会触发账号锁定。
@@ -257,6 +251,6 @@ GitHub Actions 自动构建 `linux/amd64` 和 `linux/arm64` 镜像并推送至 `
 - 操作日志长期保留，当前不提供自动清理策略。
 - 本项目与 Cloudflare, Inc. 无隶属或官方关系。
 
-## License
+## 许可证
 
 FlareDNS 基于 [MIT License](LICENSE) 发布，允许使用、修改、分发及商业使用，但必须保留版权与许可证声明。
