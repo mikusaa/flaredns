@@ -1,4 +1,8 @@
-# FlareDNS
+<p align="center">
+  <img src="frontend/src/assets/flaredns-mark.svg" width="88" height="88" alt="FlareDNS logo">
+</p>
+
+<h1 align="center">FlareDNS</h1>
 
 [![CI](https://github.com/mikusaa/flaredns/actions/workflows/ci.yml/badge.svg)](https://github.com/mikusaa/flaredns/actions/workflows/ci.yml)
 [![Container](https://github.com/mikusaa/flaredns/actions/workflows/publish-image.yml/badge.svg)](https://github.com/mikusaa/flaredns/actions/workflows/publish-image.yml)

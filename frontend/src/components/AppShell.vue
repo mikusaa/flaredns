@@ -5,6 +5,7 @@ import { useMessage } from 'naive-ui'
 import { ChevronDown, Cloud, FileClock, KeyRound, LogOut, Menu, Moon, Network, RefreshCw, Settings, Sun, X } from '@lucide/vue'
 import { api } from '@/api'
 import { useAppStore } from '@/stores/app'
+import BrandMark from '@/components/BrandMark.vue'
 
 const app = useAppStore()
 const route = useRoute()
@@ -36,7 +37,7 @@ const refreshZones = async () => {
   <div class="min-h-screen bg-[#f4f5f7] dark:bg-[#111]">
     <aside class="fixed inset-y-0 left-0 z-30 hidden w-[228px] border-r border-[#34383d] bg-[#202326] text-white lg:block">
       <div class="flex h-16 items-center gap-3 border-b border-white/10 px-5">
-        <div class="grid h-8 w-8 place-items-center rounded-md bg-[#f6821f] text-white"><Cloud :size="18"/></div>
+        <BrandMark class="h-8 w-8 shrink-0" />
         <div><div class="text-[17px] font-bold">FlareDNS</div><div class="text-[10px] text-[#aeb4ba]">CLOUDFLARE DNS</div></div>
       </div>
       <n-menu :value="route.path" :options="menuOptions" :indent="18" :root-indent="16" inverted class="mt-3" @update:value="navigate"/>
@@ -47,7 +48,7 @@ const refreshZones = async () => {
 
     <n-drawer v-model:show="mobileOpen" placement="left" :width="280">
       <n-drawer-content :native-scrollbar="false" body-content-style="padding: 0">
-        <div class="flex h-16 items-center justify-between border-b px-4"><div class="flex items-center gap-2 font-bold"><span class="grid h-8 w-8 place-items-center rounded bg-[#f6821f] text-white"><Cloud :size="18"/></span>FlareDNS</div><n-button quaternary circle @click="mobileOpen=false"><X :size="18"/></n-button></div>
+        <div class="flex h-16 items-center justify-between border-b px-4"><div class="flex items-center gap-2 font-bold"><BrandMark class="h-8 w-8 shrink-0" />FlareDNS</div><n-button quaternary circle aria-label="关闭导航" @click="mobileOpen=false"><X :size="18"/></n-button></div>
         <n-menu :value="route.path" :options="menuOptions" class="py-3" @update:value="navigate"/>
       </n-drawer-content>
     </n-drawer>
